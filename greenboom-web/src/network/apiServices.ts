@@ -1,4 +1,5 @@
 import { Method, callApi } from "./apiCaller";
+
 type PostRequest = ({
   body,
   url,
@@ -27,7 +28,7 @@ const apiService: {
   Patch: PostRequest;
   Delete: PostRequest;
 } = {
-  Post: async ({ body, url, params, setLoading, OnSuccess, OnError }) => {
+  Post: async ({ body, url, params, OnSuccess, OnError }) => {
     //  setLoading(true);
     if (params) {
       let query = Object.keys(params)
