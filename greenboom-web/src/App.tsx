@@ -1,7 +1,9 @@
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import "./App.css";
+// import "react-toastify/dist/ReactToastify.css";
 import Login from "./Screens/Login/Login";
 import Home from "./Screens/Home/Home";
+import Products from "./Screens/Products/Products";
 
 import Footer from "./components/footer/Footer";
 import { ToastContainer } from "react-toastify"; // Import ToastContainer
@@ -21,7 +23,8 @@ function App() {
       <Routes>
         <Route path="/header" element={<Footer />} />
         <Route path="/login" element={<Login />} />
-        <Route path="/home" element={<Home />} />
+        <Route path="/" element={<Home />} />
+        <Route path="/products" element={<Products />} />
       </Routes>
     </BrowserRouter>
   );
