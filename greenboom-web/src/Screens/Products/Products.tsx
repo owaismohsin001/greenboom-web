@@ -66,10 +66,11 @@ import side from "../../assets/new.svg";
 import side1 from "../../assets/new1.svg";
 import Title from "../../Components/Title/Title";
 import { PRODUCTS_DATA } from "../../constants"; // Importing the products data
+import DefaultLayout from "../../layout/DefaultLayout";
 
 function Products() {
   return (
-    <>
+    <DefaultLayout>
       <div className="bg-secondary">
         <div className="bg-white flex justify-center items-center mt-10 relative">
           <img src={side1} width={700} height={350} alt="" className="z-10" />
@@ -134,7 +135,7 @@ function Products() {
           ))}
         </div>
       </div>
-    </>
+    </DefaultLayout>
   );
 }
 

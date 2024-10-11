@@ -2,22 +2,11 @@ import apiService from "../../network/apiServices";
 import { useState } from "react";
 import routes from "../../network/routes";
 import { useNavigate } from "react-router-dom";
-import { successToast } from "../../common/toast";
-import "react-toastify/dist/ReactToastify.css"; 
-import { toast } from "react-toastify";
+import {showSuccessToast } from "../../common/toast";
 
 
 function useLogin(){
-    const showSuccessToast = (message:string) => {
-        toast.success(message, {
-          position: "top-right",
-          autoClose: 5000,
-          hideProgressBar: false,
-          closeOnClick: true,
-          pauseOnHover: true,
-          draggable: true,
-        });
-      };
+
     
     const navigate = useNavigate();
     const [email, setEmail] = useState<string>("");
@@ -42,7 +31,7 @@ function useLogin(){
             console.log("user logged in successfully" + res.message);
             showSuccessToast("logged in sucesfully");
             
-            navigate('/home');
+            navigate('/');
         },
         OnError: error => {
           console.log(error);

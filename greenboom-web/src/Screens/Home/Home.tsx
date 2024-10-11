@@ -56,7 +56,7 @@ import Venders from "../../Components/Venders";
 
 function Home() {
   return (
-    <>
+    <DefaultLayout>
       <div className="relative flex flex-col  md:ml-40 md:flex-row items-start pt-20 mx-auto">
         {/* Image */}
         <img
@@ -88,7 +88,7 @@ function Home() {
       </div>
       <Register />
       <Venders />
-    </>
+    </DefaultLayout>
   );
 
 }
