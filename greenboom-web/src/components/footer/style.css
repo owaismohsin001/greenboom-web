@@ -1,0 +1,10 @@
+.footerMainDiv{
+    
+    background-image: url('https://static.wixstatic.com/media/f5dfc7_2e1132f802004c46b0acf9ccee7ce499~mv2.png/v1/fill/w_410,h_325,al_c,q_85,enc_auto/f5dfc7_2e1132f802004c46b0acf9ccee7ce499~mv2.png');
+    background-size: 100%; /* Adjust this percentage as needed */
+    background-position: center; /* Centers the image */
+    background-position: center calc(60% - 100px);
+    background-repeat: no-repeat; 
+    
+
+}

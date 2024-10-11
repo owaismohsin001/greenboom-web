@@ -45,6 +45,8 @@
 // export default Home;
 
 import React from "react";
+
+import DefaultLayout from "../../layout/DefaultLayout";
 import mascot from "../../assets/mascot.png";
 import applestore from "../../assets/applestore.png";
 import playstore from "../../assets/playstore.png";
@@ -88,6 +90,7 @@ function Home() {
       <Venders />
     </>
   );
+
 }
 
 export default Home;
