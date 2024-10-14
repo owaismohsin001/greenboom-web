@@ -11,6 +11,7 @@ import Products from "./Screens/Products/Products";
 import Footer from "./components/footer/Footer";
 import { ToastContainer } from "react-toastify"; // Import ToastContainer
 import "react-toastify/dist/ReactToastify.css";
+import Instructions from "./Screens/Instructions/Instructions";
 function App() {
   return (
     <BrowserRouter>
@@ -28,6 +29,7 @@ function App() {
         <Route path="/login" element={<Login />} />
         <Route path="/" element={<Home />} />
         <Route path="/products" element={<Products />} />
+        <Route path="/instructions" element={<Instructions />} />
       </Routes>
     </BrowserRouter>
   );
