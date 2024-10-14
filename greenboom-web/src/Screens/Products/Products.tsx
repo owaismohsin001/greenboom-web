@@ -67,6 +67,7 @@ import side1 from "../../assets/new1.svg";
 import Title from "../../Components/Title/Title";
 import { PRODUCTS_DATA } from "../../constants"; // Importing the products data
 import DefaultLayout from "../../layout/DefaultLayout";
+import useProducts from './';
 
 function Products() {
   return (
