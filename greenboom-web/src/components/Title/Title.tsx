@@ -1,6 +1,16 @@
 import React from "react";
-type fontSizes = "xs" | "sm" | "md" | "lg" | "xl" | "2xl" | "3xl";
-type colors = "gold" | "white" | "gray" | "black" | "indigo";
+type fontSizes =
+  | "xs"
+  | "sm"
+  | "md"
+  | "lg"
+  | "xl"
+  | "2xl"
+  | "3xl"
+  | "4xl"
+  | "5xl"
+  | "6xl";
+type colors = "gold" | "white" | "gray" | "black" | "indigo" | "primaryA";
 type spacing = "tighter" | "tight" | "normal" | "wide" | "wider" | "widest";
 type weights =
   | "light"
@@ -58,6 +68,9 @@ const Title: React.FC<TitleProps> = ({
     xl: "text-xl",
     "2xl": "text-2xl",
     "3xl": "text-3xl",
+    "4xl": "text-4xl",
+    "5xl": "text-5xl",
+    "6xl": "text-6xl",
   };
   const customWeight = {
     light: "font-light",
@@ -92,6 +105,7 @@ const Title: React.FC<TitleProps> = ({
     white: "text-white",
     black: "text-black",
     indigo: "text-indigo-500",
+    primaryA: "text-primaryA",
   };
   const customSpacing = {
     tighter: "tracking-tighter",

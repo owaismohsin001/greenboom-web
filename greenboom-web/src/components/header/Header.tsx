@@ -2,7 +2,7 @@
 
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
-import GreenboomLogo from '../../assets/Greenboom.png';
+import GreenboomLogo from "../../assets/Greenboom.png";
 
 const Header = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -11,21 +11,30 @@ const Header = () => {
     <header className="bg-gray-100  text-black">
       <div className="container mx-3 flex justify-between items-center p-8">
         <div className="flex items-center mr-10">
-          <img
-            src={GreenboomLogo}
-            alt="App Logo"
-            className="h-10 w-180"
-          />
-         
-       </div>
+          <img src={GreenboomLogo} alt="App Logo" className="h-10 w-180" />
+        </div>
         <nav className="hidden md:flex space-x-36 ">
-          <Link to="/home" className="hover:text-primaryA">SCIENCE</Link>
-          <Link to="/products" className="hover:text-primaryA">PRODUCTS</Link>
-          <Link to="/news" className="hover:text-primaryA">NEWS</Link>
-          <Link to="/instructions" className="hover:text-primaryA">INSTRUCTIONS</Link>
-          <Link to="/about" className="hover:text-primaryA">ABOUT</Link>
-          <Link to="/contact" className="hover:text-primaryA">CONTACT</Link>
-          <Link to="/login" className="hover:text-gray-400 text-primaryA">LOGIN</Link>
+          <Link to="/home" className="hover:text-primaryA">
+            SCIENCE
+          </Link>
+          <Link to="/products" className="hover:text-primaryA">
+            PRODUCTS
+          </Link>
+          <Link to="/news" className="hover:text-primaryA">
+            NEWS
+          </Link>
+          <Link to="/instructions" className="hover:text-primaryA">
+            INSTRUCTIONS
+          </Link>
+          <Link to="/about" className="hover:text-primaryA">
+            ABOUT
+          </Link>
+          <Link to="/contact" className="hover:text-primaryA">
+            CONTACT
+          </Link>
+          <Link to="/login" className="hover:text-gray-400 text-primaryA">
+            LOGIN
+          </Link>
         </nav>
         <div className="md:hidden">
           <button
@@ -60,18 +69,31 @@ const Header = () => {
       {isOpen && (
         <div className="md:hidden bg-gray-100">
           <nav className="flex flex-col items-center space-y-4 py-4">
-          <Link to="/science" className="hover:text-primaryA">SCIENCE</Link>
-          <Link to="/products" className="hover:text-primaryA">PRODUCTS</Link>
-          <Link to="/news" className="hover:text-primaryA">NEWS</Link>
-          <Link to="/instructions" className="hover:text-primaryA">INSTRUCTIONS</Link>
-          <Link to="/about" className="hover:text-primaryA">ABOUT</Link>
-          <Link to="/contact" className="hover:text-primaryA">CONTACT</Link>
-          <Link to="/login" className="hover:text-gray-400 text-primaryA">LOGIN</Link>
+            <Link to="/science" className="hover:text-primaryA">
+              SCIENCE
+            </Link>
+            <Link to="/products" className="hover:text-primaryA">
+              PRODUCTS
+            </Link>
+            <Link to="/news" className="hover:text-primaryA">
+              NEWS
+            </Link>
+            <Link to="/instructions" className="hover:text-primaryA">
+              INSTRUCTIONS
+            </Link>
+            <Link to="/about" className="hover:text-primaryA">
+              ABOUT
+            </Link>
+            <Link to="/contact" className="hover:text-primaryA">
+              CONTACT
+            </Link>
+            <Link to="/login" className="hover:text-gray-400 text-primaryA">
+              LOGIN
+            </Link>
           </nav>
         </div>
       )}
     </header>
-    
   );
 };
 

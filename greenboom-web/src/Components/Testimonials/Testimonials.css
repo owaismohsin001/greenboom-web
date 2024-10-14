@@ -1,0 +1,25 @@
+/* Testimonials.css */
+.ant-carousel .slick-prev,
+.ant-carousel .slick-next {
+  color: #000;
+  font-size: 24px;
+  line-height: 1;
+  z-index: 1;
+}
+
+.ant-carousel .slick-prev {
+  left: -50px; /* Adjust this value for horizontal positioning */
+  top: 40%; /* Adjust this value to position the arrow vertically */
+}
+
+.ant-carousel .slick-next {
+  right: -50px; /* Adjust this value for horizontal positioning */
+  top: 40%; /* Adjust this value to position the arrow vertically */
+}
+
+.ant-carousel .slick-prev:hover,
+.ant-carousel .slick-next:hover {
+  background: rgba(255, 255, 255, 0.8);
+  border-radius: 50%;
+  padding: 10px;
+}
