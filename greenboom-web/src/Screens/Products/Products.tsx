@@ -61,15 +61,37 @@
 
 // export default Products;
 
-import React from "react";
+import React,{useEffect, useState} from "react";
 import side from "../../assets/new.svg";
 import side1 from "../../assets/new1.svg";
 import Title from "../../Components/Title/Title";
-import { PRODUCTS_DATA } from "../../constants"; // Importing the products data
+import { PRODUCTS_DATA } from "../../constants";
 import DefaultLayout from "../../layout/DefaultLayout";
-import useProducts from './';
+import useProducts from "./useProducts"; 
+import routes from '../../network/routes';
+import apiService from '../../network/apiServices';
+
 
 function Products() {
+  const [loading,setLoading] = useState(false);
+  const getAllProducts = ()=>{
+    apiService.Get({
+        url: routes.products,
+        setLoading,
+        OnSuccess: res => {
+            console.log("Product data we got is:")
+            console.log("data is:",res.message);
+      },
+        OnError: error => {
+            console.log(error);
+        },
+      });
+}
+
+
+useEffect(()=>{
+    getAllProducts();
+},[])
   return (
     <DefaultLayout>
       <div className="bg-secondary">

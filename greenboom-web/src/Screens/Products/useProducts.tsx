@@ -5,7 +5,7 @@ import {showErrorToast, showSuccessToast } from "../../common/toast";
 import { useEffect, useState } from 'react';
 
 
-const useProducts= ()=>{
+function useProducts (){
     const [products,setProducts] = useState([]);
 
     const getAllProducts = ()=>{
