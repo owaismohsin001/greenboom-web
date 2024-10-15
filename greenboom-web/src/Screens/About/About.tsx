@@ -54,6 +54,16 @@ function About() {
           >
             An oil spill issue solved with a plastic waste issue
           </Title> */}
+          {/* <Title
+            color="primaryA"
+            fontSize="lg"
+            weight="bold"
+            marginTop="mt-3"
+            height="relaxed"
+            className="text-center ml-[75%] mr-[10%] italic"
+          >
+            An oil spill issue solved with a plastic waste issue
+          </Title> */}
           <div className="flex flex-row">
             <div className="w-[50%] ml-[10%] mt-0">
               <img src={founders} alt="" className=" ml-[15%] mt-16  " />
@@ -69,9 +79,11 @@ function About() {
                 marginTop="mt-3"
                 height="relaxed"
                 className="text-center ml-[55%] mr-[15%] italic"
+                className="text-center ml-[55%] mr-[15%] italic"
               >
                 An oil spill issue solved with a plastic waste issue
               </Title>
+              <Title fontSize="xl" height="relaxed" className="pt-5   ">
               <Title fontSize="xl" height="relaxed" className="pt-5   ">
                 Through extensive research and testing starting in Atlanta 2019,
                 the founders Sudhir Sharma, Phd and Yulin Deng, Phd, developed a
