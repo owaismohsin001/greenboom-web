@@ -2,29 +2,25 @@ import apiService from "../../network/apiServices";
 import { useState } from "react";
 import routes from "../../network/routes";
 import { useNavigate } from "react-router-dom";
-import { successToast } from "../../common/toast";
-import "react-toastify/dist/ReactToastify.css";
-import { toast } from "react-toastify";
+import { showErrorToast, showSuccessToast } from "../../common/toast";
 
 function useLogin() {
-  const showSuccessToast = (message: string) => {
-    toast.success(message, {
-      position: "top-right",
-      autoClose: 5000,
-      hideProgressBar: false,
-      closeOnClick: true,
-      pauseOnHover: true,
-      draggable: true,
-    });
-  };
-
+  const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+  const passwordRegex =
+    /^(?=.*[A-Z])(?=.*[a-z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{6,}$/;
   const navigate = useNavigate();
   const [email, setEmail] = useState<string>("");
   const [password, setPassword] = useState<string>("");
+  const [error, setError] = useState("");
 
   const handleSubmit = async () => {
     console.log("I am getting clicked");
-    loginUserFun(email, password);
+    if (emailRegex.test(email) && passwordRegex.test(password)) {
+      loginUserFun(email, password);
+      setError("");
+    } else {
+      setError("Invalid Email or Password");
+    }
   };
   const loginUserFun = (email: string, password: string) => {
     apiService.Post({
@@ -34,18 +30,37 @@ function useLogin() {
         password,
       },
       OnSuccess: (res) => {
-        console.log("user logged in successfully" + res.message);
-        showSuccessToast("logged in sucesfully");
-
-        navigate("/");
+        if (res.status === 200) {
+          console.log("user logged in successfully" + res.message);
+          showSuccessToast("logged in sucesfully");
+          navigate("/");
+        } else {
+          showErrorToast("Incorrect Credentials");
+        }
       },
+      //error in api for time being we have added conditions.
       OnError: (error) => {
-        console.log(error);
+        console.log("error", error);
+        if (error.status === 200) {
+          console.log("user logged in successfully" + error.message);
+          showSuccessToast("logged in sucesfully");
+          navigate("/");
+        } else {
+          showErrorToast("Incorrect Credentials");
+        }
       },
     });
   };
 
-  return { email, setEmail, password, setPassword, handleSubmit };
+  return {
+    email,
+    setEmail,
+    password,
+    setPassword,
+    handleSubmit,
+    error,
+    setError,
+  };
 }
 
 export default useLogin;

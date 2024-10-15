@@ -207,7 +207,7 @@ function About() {
             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
             referrerpolicy="strict-origin-when-cross-origin"
             allowfullscreen
-            className="ml-[25%] -mt-20"
+            className="ml-[25%] -mt-20 mb-44"
           ></iframe>
           {/* </div> */}
         </div>

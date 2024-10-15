@@ -5,7 +5,7 @@ import DefaultLayout from "../../layout/DefaultLayout";
 import { successToast } from "../../common/toast";
 
 function Login() {
-  const {setEmail,setPassword,handleSubmit} = useLogin();
+  const {setEmail,setPassword,handleSubmit,error} = useLogin();
   
   
   return (
@@ -13,6 +13,7 @@ function Login() {
     <div className="bg-bg h-screen flex justify-center items-center">
       <div className="bg-white w-[416px] h-[83%]">
         <img src={logo} width={200} className="pt-12 mx-auto" />
+        
         <div className="p-12 pt-7">
           <h2 className="text-primary font-semibold text-lg">
             Hello! Let's get started
@@ -34,6 +35,7 @@ function Login() {
             placeholder="Password"
             required
           />
+          <p className="text-red-500">{error}</p>
           <button
             type="button"
             onClick={handleSubmit}
