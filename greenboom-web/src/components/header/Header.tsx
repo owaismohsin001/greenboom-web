@@ -17,7 +17,7 @@ const Header = () => {
           <Link to="/home" className="hover:text-primaryA">
             SCIENCE
           </Link>
-          <Link to="/products" className="hover:text-primaryA">
+          <Link to="/shop" className="hover:text-primaryA">
             PRODUCTS
           </Link>
           <Link to="/news" className="hover:text-primaryA">

@@ -8,8 +8,16 @@ import stage2 from "../../assets/stage2.png";
 import stage3 from "../../assets/stage3.png";
 import aboutMap from "../../assets/aboutMap.png";
 import aboutCloud from "../../assets/aboutCloud.png";
+import cloud from "../../assets/cloud.svg";
+import { useNavigate } from "react-router-dom";
+import downArrow from "../../assets/downArrow.svg";
 
 function About() {
+  const navigate = useNavigate();
+  const handleButton = () => {
+    navigate("/shop");
+    window.scrollTo(0, 0);
+  };
   return (
     <DefaultLayout>
       <div>
@@ -44,16 +52,6 @@ function About() {
         </div>
         {/* about founders */}
         <div>
-          {/* <Title
-            color="primaryA"
-            fontSize="lg"
-            weight="bold"
-            marginTop="mt-3"
-            height="relaxed"
-            className="text-center ml-[75%] mr-[10%] italic"
-          >
-            An oil spill issue solved with a plastic waste issue
-          </Title> */}
           <div className="flex flex-row">
             <div className="w-[50%] ml-[10%] mt-0">
               <img src={founders} alt="" className=" ml-[15%] mt-16  " />
@@ -68,11 +66,15 @@ function About() {
                 weight="bold"
                 marginTop="mt-3"
                 height="relaxed"
-                className="text-center ml-[55%] mr-[15%] italic"
+                className="text-center ml-[48%] mr-[25%] italic"
               >
                 An oil spill issue solved with a plastic waste issue
               </Title>
-              <Title fontSize="xl" height="relaxed" className="pt-5   ">
+              <Title
+                fontSize="xl"
+                height="relaxed"
+                className="pt-5 text-right mr-16  "
+              >
                 Through extensive research and testing starting in Atlanta 2019,
                 the founders Sudhir Sharma, Phd and Yulin Deng, Phd, developed a
                 lineup of innovative and 100% biodegradable products. Absorbents
@@ -162,6 +164,52 @@ function About() {
               health.
             </Title>
           </div>
+        </div>
+        <Title
+          className="text-gray-400 italic ml-[40%]"
+          marginBottom="mb-8"
+          marginTop="mt-8"
+          fontSize="lg"
+          weight="medium"
+        >
+          TRY it today!
+        </Title>
+        <button
+          onClick={handleButton}
+          className="bg-sky rounded px-6 ml-[44%] text-lg text-white py-2 transition duration-0 ease-in-out hover:bg-red-500 hover:text-black hover:animate-hoverEffect"
+        >
+          Get Green
+        </button>
+        <div className="relative  ml-[20%] mt-[10%]">
+          <img src={cloud} alt="" width={200} />
+          <Title
+            color="black"
+            weight="normal"
+            fontSize="lg"
+            className="absolute -mt-28 w-32 text-center ml-10"
+          >
+            Watch a video about us!
+          </Title>
+          {/* <img src={downArrow} width={100} alt="" /> */}
+          <img
+            src={downArrow}
+            width={100}
+            alt="arrow"
+            className="transform rotate-180 scale-x-[-1] ml-[10%]"
+          />
+          {/* <div className="flex justify-center items-center h-screen mb-0 md:mb-16"> */}
+          <iframe
+            width="560"
+            height="315"
+            src="https://www.youtube.com/embed/bccIJHrxfx0?si=X9EzNb2iaq4UnwJf"
+            title="YouTube video player"
+            frameborder="0"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+            referrerpolicy="strict-origin-when-cross-origin"
+            allowfullscreen
+            className="ml-[25%] -mt-20"
+          ></iframe>
+          {/* </div> */}
         </div>
       </div>
     </DefaultLayout>
