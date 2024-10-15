@@ -30,24 +30,24 @@ function Instructions() {
     <DefaultLayout>
       <div className="text-center">
         <Title
-          fontSize="4xl"
           color="primaryA"
           weight="bold"
-          marginTop="mt-16"
+          marginTop="mt-3 md:mt-16"
           marginBottom="mb-2"
+          className="text-xl md:text-4xl "
         >
           Usage instructions for
         </Title>
         <Title
-          fontSize="4xl"
           color="primaryA"
           weight="bold"
-          marginBottom="mb-5"
+          marginBottom="mb-0 md:mb-5"
+          className="text-xl md:text-4xl"
         >
           rapid spill response
         </Title>
 
-        <div className="flex justify-center items-center h-screen mb-16">
+        <div className="flex justify-center items-center h-screen mb-0 md:mb-16">
           <iframe
             width="870"
             height="530"
@@ -62,7 +62,7 @@ function Instructions() {
         <div className="flex flex-row">
           <div
             style={{ cursor: "pointer" }}
-            className="pl-10 pb-10 relative"
+            className="pl-2 md:pl-10 pb-4 md:pb-10 relative"
             onClick={toggleDropdown}
           >
             <span
@@ -103,7 +103,7 @@ function Instructions() {
             <div className="mt-5 mb-2 border border-black bg-white shadow-lg rounded-md transform -translate-x-28">
               <ul>
                 <li
-                  className="px-4 py-2 hover:bg-gray-200 cursor-pointer"
+                  className="px-2 py-0 md:px-4 md:py-2 hover:bg-gray-200 cursor-pointer"
                   onClick={showModal}
                 >
                   Share
@@ -117,18 +117,23 @@ function Instructions() {
           <h1>This is a transparent full-screen modal!</h1>
         </CustomModal>
 
-        <div className="w-full h-44 bg-primaryA">
+        <div className=" w-full h-44 bg-primaryA">
           <h1>youtube videos here from backend</h1>
         </div>
 
-        <div className="ml-[15%] mt-24 mb-24">
-          <img src={arrow} alt="" className="ml-7" />
+        <div className="ml-0 md:ml-[15%] mt-10 md:mt-24 mb-5 md:mb-24">
+          <img src={arrow} alt="" className="ml-0 md:ml-7 w-20 md:w-52" />
           <button
             onClick={redirectChannel}
-            className="ml-[20%] flex items-center bg-primaryA rounded-3xl p-2 text-white text-xl px-5 tracking-widest"
+            className=" ml-[20%] flex items-center bg-primaryA rounded-3xl p-2 text-white text-sm md:text-xl mx-7 md:px-5 tracking-widest"
           >
             Find more videos on our YouTube Channel
-            <img src={play} width={35} alt="Play icon" className="ml-2" />
+            <img
+              src={play}
+              width={35}
+              alt="Play icon"
+              className="ml-0 md:ml-2"
+            />
           </button>
         </div>
       </div>
