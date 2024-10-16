@@ -1,6 +1,7 @@
 import DefaultLayout from "../../layout/DefaultLayout";
 import Title from "../../Components/Title/Title";
 import about from "../../assets/about.png";
+import { motion } from "framer-motion";
 import founders from "../../assets/founders.png";
 import aboutArrow from "../../assets/aboutArrow.svg";
 import stage1 from "../../assets/stage1.png";
@@ -11,13 +12,32 @@ import aboutCloud from "../../assets/aboutCloud.png";
 import cloud from "../../assets/cloud.svg";
 import downArrow from "../../assets/downArrow.svg";
 import { useNavigate } from "react-router-dom";
+import { useState } from "react";
 
 function About() {
   const navigate = useNavigate();
+  const [showArrow, setShowArrow] = useState(false);
   const handleButton = () => {
     navigate("/shop");
     window.scrollTo(0, 0);
   };
+  const slideUpVariants = {
+    hidden: { opacity: 0, y: 100 },
+    visible: { opacity: 1, y: 0 },
+  };
+  const dropArrowVariants = {
+    hidden: { opacity: 0, y: -100 },
+    visible: {
+      opacity: 1,
+      y: 0,
+      transition: {
+        type: "spring",
+        stiffness: 300,
+        damping: 10,
+      },
+    },
+  };
+
   return (
     <DefaultLayout>
       <div>
@@ -85,8 +105,27 @@ function About() {
         {/* biodegrade */}
         <div className="ml-[22%] mt-20">
           <div className="flex flex-row items-center">
-            <img src={stage1} alt="" className="w-52" />
-            <img src={aboutArrow} alt="" className="w-20 mt-28" />
+            <motion.img
+              src={stage1}
+              alt="stage1"
+              className="w-52"
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true, amount: 0.2 }}
+              transition={{ duration: 2, ease: "easeInOut" }}
+              variants={slideUpVariants}
+              onAnimationComplete={() => setShowArrow(true)}
+            />
+            {showArrow && (
+              <motion.img
+                src={aboutArrow}
+                alt="aboutArrow"
+                className="w-20 mt-28"
+                variants={dropArrowVariants}
+                initial="hidden"
+                animate="visible"
+              />
+            )}
             <div className="w-[35%] ml-[15%] mr-[24%] -mt-16">
               <Title
                 color="primaryA"
@@ -101,10 +140,38 @@ function About() {
           </div>
 
           <div className="flex flex-row items-center">
-            <img src={stage2} alt="" className="w-48 ml-[20%]" />
-            <img src={aboutArrow} alt="" className="w-20 mt-10" />
+            <motion.img
+              src={stage2}
+              alt="stage2"
+              className="w-48 ml-[20%]"
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true, amount: 0.2 }}
+              transition={{ duration: 2, ease: "easeInOut" }}
+              variants={slideUpVariants}
+              onAnimationComplete={() => setShowArrow(true)}
+            />
+            {showArrow && (
+              <motion.img
+                src={aboutArrow}
+                alt="aboutArrow"
+                className="w-20 mt-10"
+                variants={dropArrowVariants}
+                initial="hidden"
+                animate="visible"
+              />
+            )}
           </div>
-          <img src={stage3} alt="" className="ml-[40%] w-48 -mt-16" />
+          <motion.img
+            src={stage3}
+            alt="stage3"
+            className="ml-[40%] w-48 -mt-16"
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, amount: 0.2 }}
+            transition={{ duration: 2, ease: "easeInOut" }}
+            variants={slideUpVariants}
+          />
         </div>
         <Title
           height="5"
@@ -128,7 +195,15 @@ function About() {
 
         <div className="flex flex-row">
           <div className="w-[50%] flex ml-[20%] mt-7 justify-end items-end">
-            <img src={aboutMap} alt="" />
+            <motion.img
+              src={aboutMap}
+              alt="aboutMap"
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true, amount: 0.2 }}
+              transition={{ duration: 2, ease: "easeInOut" }}
+              variants={slideUpVariants}
+            />
           </div>
           <div className="w-[50%] ml-5 mt-10 flex justify-start items-start mr-[17%]">
             <Title weight="light" height="6" className="text-right">
@@ -161,21 +236,38 @@ function About() {
             </Title>
           </div>
         </div>
-        <Title
-          className="text-gray-400 italic ml-[40%]"
-          marginBottom="mb-8"
-          marginTop="mt-8"
-          fontSize="lg"
-          weight="medium"
+        <motion.div
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, amount: 0.2 }}
+          transition={{ duration: 1, ease: "easeInOut" }}
+          variants={slideUpVariants}
         >
-          TRY it today!
-        </Title>
-        <button
-          onClick={handleButton}
-          className="bg-sky rounded px-6 ml-[44%] text-lg text-white py-2 transition duration-0 ease-in-out hover:bg-red-500 hover:text-black hover:animate-hoverEffect"
+          <Title
+            className="text-gray-400 italic ml-[40%]"
+            marginBottom="mb-8"
+            marginTop="mt-8"
+            fontSize="lg"
+            weight="medium"
+          >
+            TRY it today!
+          </Title>
+        </motion.div>
+
+        <motion.div
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, amount: 0.2 }}
+          transition={{ duration: 1.2, ease: "easeInOut" }}
+          variants={slideUpVariants}
         >
-          Get Green
-        </button>
+          <button
+            onClick={handleButton}
+            className="bg-sky rounded px-6 ml-[44%] text-lg text-white py-2 transition duration-0 ease-in-out hover:bg-red-500 hover:text-black hover:animate-hoverEffect"
+          >
+            Get Green
+          </button>
+        </motion.div>
         <div className="relative  ml-[20%] mt-[10%]">
           <img src={cloud} alt="" width={200} />
           <Title
@@ -186,15 +278,14 @@ function About() {
           >
             Watch a video about us!
           </Title>
-          {/* <img src={downArrow} width={100} alt="" /> */}
           <img
             src={downArrow}
             width={100}
             alt="arrow"
             className="transform rotate-180 scale-x-[-1] ml-[10%]"
           />
-          {/* <div className="flex justify-center items-center h-screen mb-0 md:mb-16"> */}
-          <iframe
+
+          <motion.iframe
             width="560"
             height="315"
             src="https://www.youtube.com/embed/bccIJHrxfx0?si=X9EzNb2iaq4UnwJf"
@@ -204,8 +295,12 @@ function About() {
             referrerpolicy="strict-origin-when-cross-origin"
             allowfullscreen
             className="ml-[25%] -mt-20"
-          ></iframe>
-          {/* </div> */}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, amount: 0.2 }}
+            transition={{ duration: 1.5, ease: "easeInOut" }}
+            variants={slideUpVariants}
+          ></motion.iframe>
         </div>
       </div>
     </DefaultLayout>
