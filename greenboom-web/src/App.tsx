@@ -14,17 +14,18 @@ import "react-toastify/dist/ReactToastify.css";
 import Instructions from "./Screens/Instructions/Instructions";
 import About from "./Screens/About/About";
 import Teams from "./Screens/Teams/Teams";
+import Science from "./Screens/Science/Science";
 function App() {
   return (
     <BrowserRouter>
       <ToastContainer
-        position="top-right" // Position of the toast notifications
-        autoClose={5000} // Time before the toast closes automatically
-        hideProgressBar={false} // Show or hide the progress bar
-        closeOnClick // Close the toast when clicked
-        pauseOnHover // Pause the auto-close timer on hover
-        draggable // Enable dragging
-        theme="colored" // Theme of the toast (default, colored, light, dark)
+        position="top-right"
+        autoClose={5000}
+        hideProgressBar={false}
+        closeOnClick
+        pauseOnHover
+        draggable
+        theme="colored"
       />
       <Routes>
         <Route path="/header" element={<Footer />} />
@@ -34,6 +35,7 @@ function App() {
         <Route path="/instructions" element={<Instructions />} />
         <Route path="/about" element={<About />} />
         <Route path="/team" element={<Teams />} />
+        <Route path="/science" element={<Science />} />
       </Routes>
     </BrowserRouter>
   );
