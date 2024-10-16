@@ -13,6 +13,7 @@ import { ToastContainer } from "react-toastify"; // Import ToastContainer
 import "react-toastify/dist/ReactToastify.css";
 import Instructions from "./Screens/Instructions/Instructions";
 import About from "./Screens/About/About";
+import Teams from "./Screens/Teams/Teams";
 function App() {
   return (
     <BrowserRouter>
@@ -32,6 +33,7 @@ function App() {
         <Route path="/products" element={<Products />} />
         <Route path="/instructions" element={<Instructions />} />
         <Route path="/about" element={<About />} />
+        <Route path="/team" element={<Teams />} />
       </Routes>
     </BrowserRouter>
   );
