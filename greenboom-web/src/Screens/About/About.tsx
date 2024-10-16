@@ -8,8 +8,16 @@ import stage2 from "../../assets/stage2.png";
 import stage3 from "../../assets/stage3.png";
 import aboutMap from "../../assets/aboutMap.png";
 import aboutCloud from "../../assets/aboutCloud.png";
+import cloud from "../../assets/cloud.svg";
+import downArrow from "../../assets/downArrow.svg";
+import { useNavigate } from "react-router-dom";
 
 function About() {
+  const navigate = useNavigate();
+  const handleButton = () => {
+    navigate("/shop");
+    window.scrollTo(0, 0);
+  };
   return (
     <DefaultLayout>
       <div>
@@ -44,26 +52,6 @@ function About() {
         </div>
         {/* about founders */}
         <div>
-          {/* <Title
-            color="primaryA"
-            fontSize="lg"
-            weight="bold"
-            marginTop="mt-3"
-            height="relaxed"
-            className="text-center ml-[75%] mr-[10%] italic"
-          >
-            An oil spill issue solved with a plastic waste issue
-          </Title> */}
-          {/* <Title
-            color="primaryA"
-            fontSize="lg"
-            weight="bold"
-            marginTop="mt-3"
-            height="relaxed"
-            className="text-center ml-[75%] mr-[10%] italic"
-          >
-            An oil spill issue solved with a plastic waste issue
-          </Title> */}
           <div className="flex flex-row">
             <div className="w-[50%] ml-[10%] mt-0">
               <img src={founders} alt="" className=" ml-[15%] mt-16  " />
@@ -78,12 +66,11 @@ function About() {
                 weight="bold"
                 marginTop="mt-3"
                 height="relaxed"
-                className="text-center ml-[55%] mr-[15%] italic"
-                className="text-center ml-[55%] mr-[15%] italic"
+                className="text-center ml-[48%] mr-[25%] italic"
               >
                 An oil spill issue solved with a plastic waste issue
               </Title>
-              <Title fontSize="xl" height="relaxed" className="pt-5   ">
+
               <Title fontSize="xl" height="relaxed" className="pt-5   ">
                 Through extensive research and testing starting in Atlanta 2019,
                 the founders Sudhir Sharma, Phd and Yulin Deng, Phd, developed a
@@ -104,8 +91,7 @@ function About() {
               <Title
                 color="primaryA"
                 weight="semibold"
-                className="italic"
-                className="tracking-widest text-center"
+                className="italic tracking-widest text-center"
                 height="6"
               >
                 In as little as four weeks our products biodegrade. Compare that
@@ -217,7 +203,7 @@ function About() {
             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
             referrerpolicy="strict-origin-when-cross-origin"
             allowfullscreen
-            className="ml-[25%] -mt-20 mb-44"
+            className="ml-[25%] -mt-20"
           ></iframe>
           {/* </div> */}
         </div>
