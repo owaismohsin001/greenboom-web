@@ -1,0 +1,24 @@
+<!-- <svg preserveAspectRatio="xMidYMid meet" data-bbox="0 12 750 318" viewBox="0 12 750 318" xmlns="http://www.w3.org/2000/svg" data-type="color" role="presentation" aria-hidden="true">
+    <g>
+        <path d="M0 12c62.6 39.3 175 72 381 82.9 216.2 11.5 317.7 69.3 369 136.3V330h-1.9c-28.8-77.4-107.4-156.8-402-141.6C177.7 197 70 184.8 0 162.3V12z" fill="#fd3f2a" data-color="1"></path>
+    </g>
+</svg> -->
+
+<svg 
+  preserveAspectRatio="xMidYMid slice" 
+  data-bbox="0 12 750 318" 
+  viewBox="0 0 650 250" 
+  xmlns="http://www.w3.org/2000/svg" 
+  data-type="color" 
+  role="presentation" 
+  aria-hidden="true" 
+  style="width: 1000px; height: 600px;" 
+>
+  <g>
+    <path 
+      d="M0 12c62.6 39.3 175 72 381 82.9 216.2 11.5 317.7 69.3 369 136.3V330h-1.9c-28.8-77.4-107.4-156.8-402-141.6C177.7 197 70 184.8 0 162.3V12z" 
+      fill="#fd3f2a" 
+      data-color="1"
+    ></path>
+  </g>
+</svg>
