@@ -13,7 +13,7 @@ import arrow from "../assets/Science/arrow.svg";
 function ScienceHeader() {
   return (
     <>
-      <div className="flex flex-row ">
+      <div className="flex flex-row  ">
         <div className="ml-[0%] w-[50%]">
           <div className="ml-32">
             <Title

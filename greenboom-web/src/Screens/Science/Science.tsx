@@ -14,6 +14,7 @@ import dot9 from "../../assets/Science/dot9.svg";
 import Speciality from "../../Components/Speciality";
 import DefaultLayout from "../../layout/DefaultLayout";
 import CertifiedSciencePage from "../../Components/CertifiedSciencePage";
+import ChemicalExperts from "../../Components/ChemicalExperts";
 function Science() {
   return (
     <div>
@@ -101,6 +102,7 @@ function Science() {
         </div>
         <Speciality />
         <CertifiedSciencePage />
+        <ChemicalExperts />
       </DefaultLayout>
     </div>
   );
