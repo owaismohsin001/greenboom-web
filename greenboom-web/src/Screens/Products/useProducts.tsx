@@ -12,6 +12,7 @@ function useProducts (){
         apiService.Get({
             url: routes.products,
             
+            
             OnSuccess: res => {
                 console.log("product data we got is : " + res.data);
           },

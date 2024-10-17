@@ -70,17 +70,18 @@ import DefaultLayout from "../../layout/DefaultLayout";
 import useProducts from "./useProducts"; 
 import routes from '../../network/routes';
 import apiService from '../../network/apiServices';
+import {useLoading} from '../../providers/LoadingProvider';
 
 
 function Products() {
-  const [loading,setLoading] = useState(false);
+  const {loading, setLoading} = useLoading();
   const getAllProducts = ()=>{
     apiService.Get({
         url: routes.products,
         setLoading,
         OnSuccess: res => {
             console.log("Product data we got is:")
-            console.log("data is:",res.message);
+            console.log("data is:",res.data);
       },
         OnError: error => {
             console.log(error);
@@ -93,6 +94,7 @@ useEffect(()=>{
     getAllProducts();
 },[])
   return (
+    
     <DefaultLayout>
       <div className="bg-secondary">
         <div className="bg-white flex justify-center items-center mt-10 relative">

@@ -8,8 +8,10 @@ import Products from "./Screens/Products/Products";
 import Footer from "./components/footer/Footer";
 import { ToastContainer } from "react-toastify"; // Import ToastContainer
 import "react-toastify/dist/ReactToastify.css"; 
+import { LoadingProvider } from "./providers/LoadingProvider";
 function App() {
   return (
+    <LoadingProvider>
     <BrowserRouter>
      <ToastContainer 
         position="top-right" // Position of the toast notifications
@@ -27,6 +29,7 @@ function App() {
         <Route path="/products" element={<Products />} />
       </Routes>
     </BrowserRouter>
+    </LoadingProvider>
   );
 }
 

@@ -1,14 +1,14 @@
-import { Method, callApi } from "./apiCaller";
+import {Method, callApi} from './apiCaller';
 
 type PostRequest = ({
   body,
   url,
   params,
 }: {
-  body?: { [key: string]: any };
+  body?: {[key: string]: any};
   url: string;
-  params?: { [key: string]: any };
-  // setLoading: (val: boolean) => void;
+  params?: {[key: string]: any};
+  setLoading: (val: boolean) => void;
   OnSuccess: (response: any) => void;
   OnError: (error: any) => void;
 }) => Promise<any>;
@@ -17,8 +17,8 @@ type GetRequest = ({
   params,
 }: {
   url: string;
-  params?: { [key: string]: any };
-  //setLoading: (val: boolean) => void;
+  params?: {[key: string]: any};
+  setLoading: (val: boolean) => void;
   OnSuccess: (response: any) => void;
   OnError: (error: any) => void;
 }) => Promise<any>;
@@ -28,68 +28,68 @@ const apiService: {
   Patch: PostRequest;
   Delete: PostRequest;
 } = {
-  Post: async ({ body, url, params, OnSuccess, OnError }) => {
-    //  setLoading(true);
+  Post: async ({body, url, params, setLoading, OnSuccess, OnError}) => {
+    setLoading(true);
     if (params) {
       let query = Object.keys(params)
-        .map((key) => key + "=" + params[key])
-        .join("&");
-      url = url + "?" + query;
+        .map(key => key + '=' + params[key])
+        .join('&');
+      url = url + '?' + query;
     }
 
     return await callApi(
       Method.POST,
       url,
       body,
-      //   setLoading,
+      setLoading,
       OnSuccess,
-      OnError
+      OnError,
     );
   },
-  Get: async ({ url, params, OnSuccess, OnError }) => {
-    //  setLoading(true);
+  Get: async ({url, params, setLoading, OnSuccess, OnError}) => {
+    setLoading(true);
     if (params) {
       let query = Object.keys(params)
-        .map((key) => key + "=" + params[key])
-        .join("&");
-      url = url + "?" + query;
+        .map(key => key + '=' + params[key])
+        .join('&');
+      url = url + '?' + query;
     }
-    return callApi(Method.GET, url, null, OnSuccess, OnError);
+    return callApi(Method.GET, url, null, setLoading, OnSuccess, OnError);
   },
-  Patch: async ({ body, url, params, OnSuccess, OnError }) => {
-    //   setLoading(true);
+  Patch: async ({body, url, params, setLoading, OnSuccess, OnError}) => {
+    setLoading(true);
     if (params) {
       let query = Object.keys(params)
-        .map((key) => key + "=" + params[key])
-        .join("&");
-      url = url + "?" + query;
+        .map(key => key + '=' + params[key])
+        .join('&');
+      url = url + '?' + query;
     }
 
     return await callApi(
       Method.PATCH,
       url,
       body,
-
+      setLoading,
       OnSuccess,
-      OnError
+      OnError,
     );
   },
-  Delete: async ({ body, url, params, OnSuccess, OnError }) => {
-    // setLoading(true);
+  Delete: async ({body, url, params, setLoading, OnSuccess, OnError}) => {
+    setLoading(true);
     if (params) {
       let query = Object.keys(params)
-        .map((key) => key + "=" + params[key])
-        .join("&");
-      url = url + "?" + query;
+        .map(key => key + '=' + params[key])
+        .join('&');
+      url = url + '?' + query;
     }
 
     return await callApi(
       Method.DELETE,
       url,
       body,
-
+      setLoading,
       OnSuccess,
-      OnError
+      OnError,
     );
   },
 };
