@@ -15,6 +15,11 @@ import Speciality from "../../Components/Speciality";
 import DefaultLayout from "../../layout/DefaultLayout";
 import CertifiedSciencePage from "../../Components/CertifiedSciencePage";
 import ChemicalExperts from "../../Components/ChemicalExperts";
+import endBanner from "../../assets/Science/endBanner.png";
+import whiteDot from "../../assets/Science/whiteDot.svg";
+import whiteDot5 from "../../assets/Science/whiteDot5.svg";
+import whiteDot6 from "../../assets/Science/whiteDot6.svg";
+import whiteDot7 from "../../assets/Science/whiteDot7.svg";
 function Science() {
   return (
     <div>
@@ -103,6 +108,80 @@ function Science() {
         <Speciality />
         <CertifiedSciencePage />
         <ChemicalExperts />
+        <div className="flex justify-center items-center mt-12 mb-24 ml-40">
+          <img src={endBanner} alt="" />
+          <div className="flex flex-row pl-20 pr-20 -ml-[1000px] -mt-10">
+            <div className="w-[50%] pl-20 ">
+              <Title
+                className="text-white italic w-[40%]"
+                weight="bold"
+                fontSize="2xl"
+                marginTop="mt-16 "
+              >
+                WE'VE GOT YOU COVERED
+              </Title>
+              <button className="mt-28 bg-sky px-5 py-2 text-primaryA rounded-lg text-sm tracking-wider hover:bg-gray-300">
+                BE PREPARED
+              </button>
+            </div>
+            <div className="w-[50%] mt-16 pl-12">
+              <Title
+                className="text-white w-[70%]"
+                height="5"
+                weight="semibold"
+              >
+                The Green Boom Spill Kit has everything you need to tackle the
+                smaller industry messes when they show up.
+              </Title>
+              <div className="flex flex-col gap-2 mt-12 ml-14">
+                <div className="flex flex-row">
+                  <img src={whiteDot} width={8} alt="" />
+                  <Title
+                    color="white"
+                    fontSize="sm"
+                    weight="light"
+                    className="pl-4"
+                  >
+                    Loose Sorbent
+                  </Title>
+                </div>
+                <div className="flex flex-row">
+                  <img src={whiteDot5} width={8} alt="" />
+                  <Title
+                    color="white"
+                    fontSize="sm"
+                    weight="light"
+                    className="pl-4"
+                  >
+                    Sorbent Pillows
+                  </Title>
+                </div>
+                <div className="flex flex-row">
+                  <img src={whiteDot6} width={8} alt="" />
+                  <Title
+                    color="white"
+                    fontSize="sm"
+                    weight="light"
+                    className="pl-4"
+                  >
+                    Sorbent Socks
+                  </Title>
+                </div>
+                <div className="flex flex-row">
+                  <img src={whiteDot7} width={8} alt="" />
+                  <Title
+                    color="white"
+                    fontSize="sm"
+                    weight="light"
+                    className="pl-4"
+                  >
+                    Sorbent Mats
+                  </Title>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
       </DefaultLayout>
     </div>
   );
