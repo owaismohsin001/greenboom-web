@@ -20,7 +20,12 @@ import whiteDot from "../../assets/Science/whiteDot.svg";
 import whiteDot5 from "../../assets/Science/whiteDot5.svg";
 import whiteDot6 from "../../assets/Science/whiteDot6.svg";
 import whiteDot7 from "../../assets/Science/whiteDot7.svg";
+import { useNavigate } from "react-router-dom";
 function Science() {
+  const navigate = useNavigate();
+  const handleButton = () => {
+    navigate("/products");
+  };
   return (
     <div>
       <DefaultLayout>
@@ -120,7 +125,10 @@ function Science() {
               >
                 WE'VE GOT YOU COVERED
               </Title>
-              <button className="mt-28 bg-sky px-5 py-2 text-primaryA rounded-lg text-sm tracking-wider hover:bg-gray-300">
+              <button
+                onClick={handleButton}
+                className="mt-28 bg-sky px-5 py-2 text-primaryA rounded-lg text-sm tracking-wider hover:bg-gray-300"
+              >
                 BE PREPARED
               </button>
             </div>

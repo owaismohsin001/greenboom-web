@@ -3,8 +3,19 @@ import expert1 from "../assets/Science/expert1.png";
 import cloud from "../assets/Science/cloud.svg";
 import expert2 from "../assets/Science/expert2.png";
 import { Card, Carousel } from "antd";
+import { useLocation } from "react-router-dom";
+import { useEffect } from "react";
 
 function ChemicalExperts() {
+  const location = useLocation();
+  useEffect(() => {
+    if (location.state && location.state.scrollToId) {
+      const element = document.getElementById(location.state.scrollToId);
+      if (element) {
+        element.scrollIntoView({ behavior: "smooth" }); // Smooth scroll to the element
+      }
+    }
+  }, [location.state]);
   const experts = [
     {
       name: "Sudhir Sharma, PhD",
@@ -21,7 +32,7 @@ function ChemicalExperts() {
   ];
 
   return (
-    <div>
+    <div id="experts">
       <Title
         className="text-gray-400 italic text-center"
         marginTop="mt-16"

@@ -16,9 +16,12 @@ import { useState } from "react";
 
 function About() {
   const navigate = useNavigate();
+  const navigateToExperts = () => {
+    navigate("/science", { state: { scrollToId: "experts" } });
+  };
   const [showArrow, setShowArrow] = useState(false);
   const handleButton = () => {
-    navigate("/shop");
+    navigate("/products");
     window.scrollTo(0, 0);
   };
   const slideUpVariants = {
@@ -75,7 +78,10 @@ function About() {
           <div className="flex flex-row">
             <div className="w-[50%] ml-[10%] mt-0">
               <img src={founders} alt="" className=" ml-[15%] mt-16  " />
-              <button className="bg-sky py-3 px-9 rounded-lg ml-[11%] text-xl font-normal tracking-widest hover:bg-primaryA">
+              <button
+                onClick={navigateToExperts}
+                className="bg-sky py-3 px-9 rounded-lg ml-[11%] text-xl font-normal tracking-widest hover:bg-primaryA"
+              >
                 Read more about the founders
               </button>
             </div>

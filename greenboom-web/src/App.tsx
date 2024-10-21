@@ -15,6 +15,7 @@ import Instructions from "./Screens/Instructions/Instructions";
 import About from "./Screens/About/About";
 import Teams from "./Screens/Teams/Teams";
 import Science from "./Screens/Science/Science";
+import Contact from "./Screens/Contact/Contact";
 function App() {
   return (
     <BrowserRouter>
@@ -36,6 +37,7 @@ function App() {
         <Route path="/about" element={<About />} />
         <Route path="/team" element={<Teams />} />
         <Route path="/science" element={<Science />} />
+        <Route path="/contact" element={<Contact />} />
       </Routes>
     </BrowserRouter>
   );

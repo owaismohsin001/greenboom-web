@@ -1,0 +1,8 @@
+/* FAQ.css */
+.ant-collapse-item {
+  border: none; /* Remove the border of the collapse item */
+}
+
+.ant-collapse-header {
+  border-bottom: none; /* Remove the bottom border from the header */
+}
