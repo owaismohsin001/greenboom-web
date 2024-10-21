@@ -40,7 +40,7 @@ function Contact() {
             Send us a note to get in touch with our team.
           </Title>
         </div>
-        <div className="-ml-10 flex flex-row gap-4">
+        <div className="-ml-10 flex flex-row gap-4 mb-20">
           <img src={cloud} width={180} className="-mt-96" alt="" />
           <div className=" rounded-lg bg-gray-300 pt-6 pl-16  -ml-10 mt-12 w-[30%]">
             <Title weight="semibold" fontSize="2xl">

@@ -27,7 +27,7 @@ function Science() {
     navigate("/products");
   };
   return (
-    <div>
+    <div className="pl-20">
       <DefaultLayout>
         <ScienceHeader />
         <div className="ml-40 mr-24 flex flex-row">

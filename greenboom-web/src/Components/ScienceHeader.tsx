@@ -1,3 +1,4 @@
+import { motion } from "framer-motion";
 import Title from "./Title/Title";
 import header from "../assets/Science/header.png";
 import cloud from "../assets/Science/cloud.svg";
@@ -11,6 +12,18 @@ import dot3 from "../assets/Science/Dot3.svg";
 import arrow from "../assets/Science/arrow.svg";
 
 function ScienceHeader() {
+  const cloudAnimation = {
+    hidden: { opacity: 0, x: 100 },
+    visible: {
+      opacity: 1,
+      x: 0,
+      transition: {
+        type: "spring",
+        stiffness: 50,
+        duration: 2,
+      },
+    },
+  };
   return (
     <>
       <div className="flex flex-row  ">
@@ -39,7 +52,6 @@ function ScienceHeader() {
               className="italic pl-3 "
               marginBottom="mb-12"
             >
-              {" "}
               SUSTAINABILITY
             </Title>
             <Title weight="light" className="text-left  w-[71%]" height="6">
@@ -49,11 +61,30 @@ function ScienceHeader() {
           </div>
         </div>
         <div className="mr-[20%] w-[60%]">
-          <img src={header} alt="" />
+          <motion.img
+            src={header}
+            alt=""
+            initial={{ y: "-100vh" }}
+            animate={{ y: 0 }}
+            transition={{
+              type: "spring",
+              stiffness: 100,
+              damping: 20,
+              duration: 2,
+            }}
+          />
         </div>
       </div>
       <div className="flex ml-[60%] -mt-10">
-        <img src={cloud} width={400} alt="" />
+        {/* <img src={cloud} width={400} alt="" /> */}
+        <motion.img
+          src={cloud}
+          width={400}
+          alt=""
+          initial="hidden"
+          animate="visible"
+          variants={cloudAnimation}
+        />
       </div>
       <div className="flex flex-row">
         <div className="mt-10 ml-[3%] w-[50%]">
