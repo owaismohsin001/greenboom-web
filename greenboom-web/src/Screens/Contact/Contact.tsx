@@ -2,6 +2,7 @@ import React from "react";
 import oily from "../../assets/contact/oily.png";
 import Title from "../../Components/Title/Title";
 import DefaultLayout from "../../layout/DefaultLayout";
+import Carousal from "../../Components/Carousal/Carousal";
 import cloud from "../../assets/contact/cloud.svg";
 import {
   FaLinkedin,
@@ -136,6 +137,9 @@ function Contact() {
           </div>
         </div>
         <FaqSection />
+      </div>
+      <div className="bg-secondary flex items-center justify-center min-h-screen w-full">
+        <Carousal />
       </div>
     </DefaultLayout>
   );

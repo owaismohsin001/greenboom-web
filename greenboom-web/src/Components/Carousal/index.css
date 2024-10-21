@@ -1,0 +1,12 @@
+/* index.css or your global CSS file */
+
+.carousel-3d {
+  perspective: 1000px;
+}
+
+.carousel-item {
+  transform-style: preserve-3d;
+  transition: transform 0.5s;
+  width: 300px; /* Set a fixed width for items */
+  height: 300px; /* Set a fixed height for items */
+}
