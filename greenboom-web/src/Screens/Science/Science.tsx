@@ -20,12 +20,77 @@ import whiteDot from "../../assets/Science/whiteDot.svg";
 import whiteDot5 from "../../assets/Science/whiteDot5.svg";
 import whiteDot6 from "../../assets/Science/whiteDot6.svg";
 import whiteDot7 from "../../assets/Science/whiteDot7.svg";
+
+import { motion, useAnimation } from "framer-motion";
+import { useInView } from "react-intersection-observer";
 import { useNavigate } from "react-router-dom";
 function Science() {
   const navigate = useNavigate();
   const handleButton = () => {
     navigate("/products");
   };
+
+  // animation material
+  const controlsLeft = useAnimation();
+  const controlsRight = useAnimation();
+  const controlsArrow = useAnimation();
+  const controlsTitle = useAnimation();
+
+  // InView hooks for each  element
+  const [refLeft, inViewLeft] = useInView({
+    triggerOnce: true,
+    threshold: 0.2,
+  });
+  const [refRight, inViewRight] = useInView({
+    triggerOnce: true,
+    threshold: 0.2,
+  });
+  const [refArrow, inViewArrow] = useInView({
+    triggerOnce: true,
+    threshold: 0.2,
+  });
+  const [refTitle, inViewTitle] = useInView({
+    triggerOnce: true,
+    threshold: 0.2,
+  });
+  // Start animations when in view
+  if (inViewLeft) {
+    controlsLeft.start({
+      x: 0,
+      opacity: 1,
+      transition: { type: "spring", stiffness: 50, duration: 1.5 },
+    });
+  }
+
+  if (inViewRight) {
+    controlsRight.start({
+      x: 0,
+      opacity: 1,
+      transition: { type: "spring", stiffness: 50, duration: 1.5 },
+    });
+  }
+
+  if (inViewArrow) {
+    controlsArrow.start({
+      y: [20, -15, 0], // Move up and then back to original position for bounce
+      opacity: 1,
+      transition: {
+        type: "spring",
+        stiffness: 300, // Increase stiffness for a snappier animation
+        damping: 7, // Control the amount of bounce, lower values = more bounce
+        duration: 1.5,
+      },
+    });
+  }
+  // Title animation
+  if (inViewTitle) {
+    controlsTitle.start({
+      y: [20, -15, 0],
+      opacity: 1,
+      transition: { type: "spring", stiffness: 300, damping: 7, duration: 1.5 },
+    });
+  }
+
   return (
     <div className="pl-20">
       <DefaultLayout>
@@ -35,20 +100,34 @@ function Science() {
             <Title className="text-primaryA" weight="semibold">
               A LEAVE NO TRACE SOLUTION
             </Title>
-            <Title fontSize="5xl" weight="semibold" marginTop="mt-7">
-              The science behind easier clean up.
-            </Title>
-            <Title
-              weight="light"
-              marginTop="mt-5"
-              marginBottom="mb-24"
-              height="6"
-              className="w-96"
+
+            <motion.div
+              ref={refLeft}
+              initial={{ opacity: 0, x: -100 }}
+              animate={controlsLeft}
             >
-              Through extensive research and development, we have developed a
-              lineup of innovative ‘green’ products that clean the environment
-              while saving on overall cleanup time and costs.
-            </Title>
+              <Title fontSize="5xl" weight="semibold" marginTop="mt-7">
+                The science behind easier clean up.
+              </Title>
+            </motion.div>
+
+            <motion.div
+              ref={refRight}
+              initial={{ opacity: 0, x: 100 }}
+              animate={controlsRight}
+            >
+              <Title
+                weight="light"
+                marginTop="mt-5"
+                marginBottom="mb-24"
+                height="6"
+                className="w-96"
+              >
+                Through extensive research and development, we have developed a
+                lineup of innovative ‘green’ products that clean the environment
+                while saving on overall cleanup time and costs.
+              </Title>
+            </motion.div>
 
             <img
               src={highlight}
@@ -56,19 +135,30 @@ function Science() {
               className="-mt-[170px] ml-52"
               alt=""
             />
-            <img
+
+            <motion.img
+              ref={refArrow}
               src={highlightArrow}
               width={100}
               height={80}
               className="ml-80 -mt-2"
+              initial={{ opacity: 0, y: -20 }}
+              animate={controlsArrow}
               alt=""
             />
-            <Title
-              className="text-gray-400 mt-4 w-28 italic ml-96"
-              weight="semibold"
+
+            <motion.div
+              ref={refTitle}
+              initial={{ opacity: 0, y: 20 }}
+              animate={controlsTitle}
             >
-              WE'VE GOT 'EM ALL!
-            </Title>
+              <Title
+                className="text-gray-400 mt-4 w-28 italic ml-96"
+                weight="semibold"
+              >
+                WE'VE GOT 'EM ALL!
+              </Title>
+            </motion.div>
           </div>
           <div className="w-[50%] mb-24">
             <img src={circle} alt="" width={450} />

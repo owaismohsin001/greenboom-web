@@ -50,14 +50,28 @@ const AnimatedText = ({ text }) => {
 };
 
 const slideInAnimation = {
-  hidden: { opacity: 0, x: 100 }, // Start off to the right with low opacity
+  hidden: { opacity: 0, x: 100 },
   visible: {
     opacity: 1,
-    x: 0, // Move to its original position
+    x: 0,
     transition: {
       type: "spring",
       stiffness: 50,
       duration: 1.5,
+    },
+  },
+};
+
+const springAnimation = {
+  hidden: { opacity: 0, scale: 0.5 },
+  visible: {
+    opacity: 1,
+    scale: 1,
+    transition: {
+      type: "spring",
+      stiffness: 100,
+      damping: 3,
+      mass: 0.5,
     },
   },
 };
@@ -76,6 +90,7 @@ function ScienceHeader() {
     },
   };
   const fadeInAnimation = {
+    // fade in animation
     hidden: { opacity: 0 },
     visible: {
       opacity: 1,
@@ -85,8 +100,12 @@ function ScienceHeader() {
     },
   };
 
+  // refs to make the animations only when the content is came into viewport
   const controls = useAnimation();
   const [ref, inView] = useInView({ triggerOnce: true, threshold: 0.2 });
+  const { ref: ref1, inView: inView1 } = useInView({ triggerOnce: true });
+  const { ref: ref2, inView: inView2 } = useInView({ triggerOnce: true });
+  const { ref: ref3, inView: inView3 } = useInView({ triggerOnce: true });
 
   if (inView) {
     controls.start({
@@ -171,7 +190,6 @@ function ScienceHeader() {
       </div>
       <div className="flex flex-row">
         <div className="mt-10 ml-[3%] w-[50%]">
-          {/* <img src={cloud2} width={400} alt="" /> */}
           <motion.img
             ref={ref}
             src={cloud2}
@@ -180,7 +198,6 @@ function ScienceHeader() {
             initial={{ x: -200, opacity: 0 }}
             animate={controls}
           />
-          {/* <img src={waste1} className="-mt-[58%] ml-[25%]" alt="" /> */}
           <motion.img
             src={waste1}
             className="-mt-[58%] ml-[25%]"
@@ -228,9 +245,9 @@ function ScienceHeader() {
             </Title>
           </motion.div>
           <motion.div
-            ref={ref} // Attach the ref to the motion div
+            ref={ref}
             initial="hidden"
-            animate={inView ? "visible" : "hidden"} // Animate when in view
+            animate={inView ? "visible" : "hidden"}
             variants={slideInAnimation}
           >
             <Title
@@ -253,39 +270,72 @@ function ScienceHeader() {
         <div>
           <div className="flex flex-row mb-7">
             <img src={dot1} width={12} alt="" />
-            <Title className="w-64 pl-4">
-              Each competitor's 10 lb. boom is equivalent to 3000 plastic
-              straws.
-            </Title>
+            <motion.div
+              ref={ref1}
+              initial="hidden"
+              animate={inView1 ? "visible" : "hidden"}
+              variants={fadeInAnimation}
+            >
+              <Title className="w-64 pl-4">
+                Each competitor's 10 lb. boom is equivalent to 3000 plastic
+                straws.
+              </Title>
+            </motion.div>
           </div>
+
           <div className="flex flex-row mb-7">
             <img src={dot2} width={12} alt="" />
-            <Title className="w-64 pl-4">
-              Even minor oil spills often require multiples of truckloads of
-              booms.
-            </Title>
+            <motion.div
+              ref={ref2}
+              initial="hidden"
+              animate={inView2 ? "visible" : "hidden"}
+              variants={fadeInAnimation}
+            >
+              <Title className="w-64 pl-4">
+                Even minor oil spills often require multiples of truckloads of
+                booms.
+              </Title>
+            </motion.div>
           </div>
+
           <div className="flex flex-row pb-24">
             <img src={dot3} width={12} alt="" />
-            <Title className="w-64 pl-4">
-              Polypropylene products end up in landfills, never breaking down.
-            </Title>
+            <motion.div
+              ref={ref3}
+              initial="hidden"
+              animate={inView3 ? "visible" : "hidden"}
+              variants={fadeInAnimation}
+            >
+              <Title className="w-64 pl-4">
+                Polypropylene products end up in landfills, never breaking down.
+              </Title>
+            </motion.div>
           </div>
         </div>
         <div className="-mt-28">
-          <img
-            src={arrow}
-            width={100}
-            alt=""
-            className="ml-16 tranform rotate-12 pb-5"
-          />
-          <Title
-            height="6"
-            className="pl-20 w-56 italic text-gray-400"
-            weight="semibold"
+          <motion.div
+            ref={ref}
+            initial="hidden"
+            animate={inView ? "visible" : "hidden"}
+            variants={springAnimation}
+            className="ml-16 transform rotate-12 pb-5"
           >
-            The founders of Green Boom never thought that made any sense.{" "}
-          </Title>
+            <img src={arrow} width={100} alt="" />
+          </motion.div>
+          <motion.div
+            ref={ref}
+            initial="hidden"
+            animate={inView ? "visible" : "hidden"}
+            variants={springAnimation}
+          >
+            <Title
+              height="6"
+              className="pl-20 w-56 italic text-gray-400"
+              weight="semibold"
+            >
+              The founders of Green Boom never thought that made any sense.
+            </Title>
+          </motion.div>
         </div>
       </div>
     </>
