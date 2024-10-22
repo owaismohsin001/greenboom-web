@@ -9,7 +9,35 @@ import dot7 from "../assets/Science/dot7.svg";
 import dot8 from "../assets/Science/dot8.svg";
 import dot9 from "../assets/Science/dot9.svg";
 import oily from "../assets/Science/oily.png";
+import { motion, useAnimation } from "framer-motion";
+import { useInView } from "react-intersection-observer";
+import { useEffect } from "react";
 function Speciality() {
+  const controls = useAnimation();
+  const [ref, inView] = useInView({
+    triggerOnce: true,
+    threshold: 0.1,
+  });
+  const controlsIframe = useAnimation();
+  const [refIframe, inViewIframe] = useInView({
+    triggerOnce: true,
+    threshold: 0.1,
+  });
+
+  useEffect(() => {
+    if (inView) {
+      controls.start({ opacity: 1, y: 0 });
+    } else {
+      controls.start({ opacity: 0, y: 20 }); // Set initial state
+    }
+  }, [controls, inView]);
+  useEffect(() => {
+    if (inViewIframe) {
+      controlsIframe.start({ opacity: 1 });
+    } else {
+      controlsIframe.start({ opacity: 0 }); // Set initial state
+    }
+  }, [controlsIframe, inViewIframe]);
   return (
     <div>
       <Title
@@ -107,51 +135,51 @@ function Speciality() {
         </div>
         <div className="w-[280px] ">
           <img src={special3} alt="" className="" />
-          <Title
-            fontSize="2xl"
-            weight="semibold"
-            marginTop="mt-3"
+          <motion.div
+            ref={ref}
+            initial={{ opacity: 0, y: 190 }} // Start invisible and positioned down
+            animate={controls}
+            transition={{ duration: 0.9 }}
             className="text-center"
-            height="8"
           >
-            OIL-DEGRADING REMEDIATION MATERIAL
-          </Title>
-          <Title
-            weight="light"
-            height="6"
-            className="mt-5 text-center"
-            marginBottom="mb-7"
-          >
-            Hydrocarbon eating bacteria only thrive in oil-rich conditions
-          </Title>
-          <div className="flex flex-row mt-3">
-            <img src={dot6} width={10} alt="" />
-            <Title fontSize="md" className="pl-3 pt-4" height="6">
-              Optional remediation material can be added to degrade absorbed
-              oil.
+            <Title fontSize="2xl" weight="semibold" marginTop="mt-2" height="8">
+              OIL-DEGRADING REMEDIATION MATERIAL
             </Title>
-          </div>
-          <div className="flex flex-row mt-5">
-            <img src={dot8} width={10} alt="" className="-mt-10" />
-            <Title fontSize="md" className="pl-3 -pt-4" height="6">
-              Save on disposal costs depending on your clean up project and
-              location.
+            <Title weight="light" height="6" marginBottom="mb-7 mt-5">
+              Hydrocarbon eating bacteria only thrive in oil-rich conditions
             </Title>
-          </div>
+            <div className="flex flex-row mt-3">
+              <img src={dot6} width={10} alt="" />
+              <Title fontSize="md" className="pl-3 pt-4" height="6">
+                Optional remediation material can be added to degrade absorbed
+                oil.
+              </Title>
+            </div>
+            <div className="flex flex-row mt-5">
+              <img src={dot8} width={10} alt="" className="-mt-10" />
+              <Title fontSize="md" className="pl-3 -pt-4" height="6">
+                Save on disposal costs depending on your clean up project and
+                location.
+              </Title>
+            </div>
+          </motion.div>
         </div>
       </div>
       <div className="mt-28 ml-72 mr-40 flex flex-row gap-6">
-        <div>
-          <iframe
+        <div ref={refIframe}>
+          <motion.iframe
             width="400"
             height="225"
             src="https://www.youtube.com/embed/lfeFhlZcsbI?si=IN6aTZLO9kruZHfJ"
             title="YouTube video player"
-            frameborder="0"
+            frameBorder="0"
             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-            referrerpolicy="strict-origin-when-cross-origin"
-            allowfullscreen
-          ></iframe>
+            referrerPolicy="strict-origin-when-cross-origin"
+            allowFullScreen
+            initial={{ opacity: 0 }} // Start invisible
+            animate={controls}
+            transition={{ duration: 1.2 }} // Adjust duration as needed
+          ></motion.iframe>
         </div>
         <div className="flex">
           <img src={oily} alt="" className="pt-12" />
