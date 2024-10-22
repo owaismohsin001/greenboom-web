@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import ScienceHeader from "../../Components/ScienceHeader";
 import Title from "../../Components/Title/Title";
 import highlightArrow from "../../assets/Science/highlightArrow.svg";
@@ -35,6 +35,8 @@ function Science() {
   const controlsRight = useAnimation();
   const controlsArrow = useAnimation();
   const controlsTitle = useAnimation();
+  const controlsCircle = useAnimation();
+  const controlsGrid = useAnimation();
 
   // InView hooks for each  element
   const [refLeft, inViewLeft] = useInView({
@@ -53,6 +55,11 @@ function Science() {
     triggerOnce: true,
     threshold: 0.2,
   });
+  const [refImages, inViewImages] = useInView({
+    triggerOnce: true,
+    threshold: 0.2,
+  });
+
   // Start animations when in view
   if (inViewLeft) {
     controlsLeft.start({
@@ -72,17 +79,16 @@ function Science() {
 
   if (inViewArrow) {
     controlsArrow.start({
-      y: [20, -15, 0], // Move up and then back to original position for bounce
+      y: [20, -15, 0],
       opacity: 1,
       transition: {
         type: "spring",
-        stiffness: 300, // Increase stiffness for a snappier animation
-        damping: 7, // Control the amount of bounce, lower values = more bounce
+        stiffness: 300,
+        damping: 7,
         duration: 1.5,
       },
     });
   }
-  // Title animation
   if (inViewTitle) {
     controlsTitle.start({
       y: [20, -15, 0],
@@ -90,6 +96,24 @@ function Science() {
       transition: { type: "spring", stiffness: 300, damping: 7, duration: 1.5 },
     });
   }
+  useEffect(() => {
+    if (inViewImages) {
+      controlsCircle.start({
+        x: 0,
+        opacity: 1,
+        transition: { type: "spring", stiffness: 50, duration: 1.5 },
+      });
+
+      controlsGrid.start({
+        x: 0,
+        opacity: 1,
+        transition: { type: "spring", stiffness: 50, duration: 1.2 },
+      });
+    } else {
+      controlsCircle.start({ x: 100, opacity: 0 });
+      controlsGrid.start({ x: 150, opacity: 0 });
+    }
+  }, [inViewImages, controlsCircle, controlsGrid]);
 
   return (
     <div className="pl-20">
@@ -160,9 +184,21 @@ function Science() {
               </Title>
             </motion.div>
           </div>
-          <div className="w-[50%] mb-24">
-            <img src={circle} alt="" width={450} />
-            <img src={grid} alt="" className="-mt-[450px] " />
+          <div className="w-[50%] mb-24 " ref={refImages}>
+            <motion.img
+              src={circle}
+              alt=""
+              width={450}
+              initial={{ opacity: 0, x: 150 }} // Start off-screen to the right
+              animate={controlsCircle}
+            />
+            <motion.img
+              src={grid}
+              alt=""
+              className="-mt-[450px]"
+              initial={{ opacity: 0, x: 190 }} // Start off-screen to the right
+              animate={controlsGrid}
+            />
           </div>
         </div>
         <div className="ml-40">
