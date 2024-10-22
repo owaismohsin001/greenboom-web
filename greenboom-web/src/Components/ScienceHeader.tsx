@@ -11,6 +11,42 @@ import dot2 from "../assets/Science/Dot2.svg";
 import dot3 from "../assets/Science/Dot3.svg";
 import arrow from "../assets/Science/arrow.svg";
 
+const AnimatedText = ({ text }) => {
+  const letters = text.split("");
+
+  const container = {
+    hidden: { opacity: 0 },
+    visible: (i = 1) => ({
+      opacity: 1,
+      transition: { staggerChildren: 0.05, delayChildren: 0.04 * i },
+    }),
+  };
+
+  const child = {
+    hidden: { opacity: 0, y: 20 },
+    visible: {
+      opacity: 1,
+      y: 0,
+      transition: { type: "spring", damping: 12, stiffness: 100 },
+    },
+  };
+
+  return (
+    <motion.div
+      className="flex"
+      variants={container}
+      initial="hidden"
+      animate="visible"
+    >
+      {letters.map((letter, index) => (
+        <motion.span key={index} variants={child}>
+          {letter === " " ? "\u00A0" : letter}
+        </motion.span>
+      ))}
+    </motion.div>
+  );
+};
+
 function ScienceHeader() {
   const cloudAnimation = {
     hidden: { opacity: 0, x: 100 },
@@ -24,19 +60,35 @@ function ScienceHeader() {
       },
     },
   };
+  const fadeInAnimation = {
+    hidden: { opacity: 0 },
+    visible: {
+      opacity: 1,
+      transition: {
+        duration: 1.5,
+      },
+    },
+  };
+
   return (
     <>
       <div className="flex flex-row  ">
         <div className="ml-[0%] w-[50%]">
           <div className="ml-32">
-            <Title
-              className="text-primaryA"
-              marginTop="mt-48"
-              weight="semibold"
-              fontSize="md"
+            <motion.div
+              initial="hidden"
+              animate="visible"
+              variants={fadeInAnimation}
             >
-              OUR TECHNOLOGIES
-            </Title>
+              <Title
+                className="text-primaryA"
+                marginTop="mt-48"
+                weight="semibold"
+                fontSize="md"
+              >
+                OUR TECHNOLOGIES
+              </Title>
+            </motion.div>
             <Title
               weight="semibold"
               className="tracking-wider pl-3 "
@@ -44,7 +96,7 @@ function ScienceHeader() {
               marginBottom="mb-5"
               fontSize="4xl"
             >
-              A SPOTLIGHT ON
+              <AnimatedText text="A SPOTLIGHT ON" />
             </Title>
             <Title
               weight="semibold"
@@ -52,12 +104,18 @@ function ScienceHeader() {
               className="italic pl-3 "
               marginBottom="mb-12"
             >
-              SUSTAINABILITY
+              <AnimatedText text="SUSTAINABILITY" />
             </Title>
-            <Title weight="light" className="text-left  w-[71%]" height="6">
-              Green Boom aims to forever change oil-spill cleanup and ensure a
-              greener future.
-            </Title>
+            <motion.div
+              initial="hidden"
+              animate="visible"
+              variants={fadeInAnimation}
+            >
+              <Title weight="light" className="text-left w-[71%]" height="6">
+                Green Boom aims to forever change oil-spill cleanup and ensure a
+                greener future.
+              </Title>
+            </motion.div>
           </div>
         </div>
         <div className="mr-[20%] w-[60%]">
@@ -76,7 +134,6 @@ function ScienceHeader() {
         </div>
       </div>
       <div className="flex ml-[60%] -mt-10">
-        {/* <img src={cloud} width={400} alt="" /> */}
         <motion.img
           src={cloud}
           width={400}
