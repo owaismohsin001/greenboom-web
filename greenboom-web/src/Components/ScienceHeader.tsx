@@ -1,4 +1,6 @@
-import { motion } from "framer-motion";
+import { motion, useAnimation } from "framer-motion";
+import { useRef } from "react";
+import { useInView } from "react-intersection-observer";
 import Title from "./Title/Title";
 import header from "../assets/Science/header.png";
 import cloud from "../assets/Science/cloud.svg";
@@ -69,6 +71,17 @@ function ScienceHeader() {
       },
     },
   };
+
+  const controls = useAnimation();
+  const [ref, inView] = useInView({ triggerOnce: true, threshold: 0.2 });
+
+  if (inView) {
+    controls.start({
+      x: 0,
+      opacity: 1,
+      transition: { type: "spring", stiffness: 50, duration: 1.5 },
+    });
+  }
 
   return (
     <>
@@ -145,10 +158,40 @@ function ScienceHeader() {
       </div>
       <div className="flex flex-row">
         <div className="mt-10 ml-[3%] w-[50%]">
-          <img src={cloud2} width={400} alt="" />
-          <img src={waste1} className="-mt-[48%] ml-[25%]" alt="" />
-          <img src={waste2} className="mt-[4%] ml-[25%]" alt="" />
-          <img src={tri} className="-mt-[47%] ml-[77%]" alt="" />
+          {/* <img src={cloud2} width={400} alt="" /> */}
+          <motion.img
+            ref={ref}
+            src={cloud2}
+            width={400}
+            alt=""
+            initial={{ x: -200, opacity: 0 }}
+            animate={controls}
+          />
+          {/* <img src={waste1} className="-mt-[58%] ml-[25%]" alt="" /> */}
+          <motion.img
+            src={waste1}
+            className="-mt-[58%] ml-[25%]"
+            alt=""
+            initial="hidden"
+            animate="visible"
+            variants={fadeInAnimation}
+          />
+          <motion.img
+            src={waste2}
+            className="mt-[25px] ml-[25%]"
+            alt=""
+            initial="hidden"
+            animate="visible"
+            variants={fadeInAnimation}
+          />
+          <motion.img
+            src={tri}
+            className="-mt-[290px] ml-[77%]"
+            alt=""
+            initial="hidden"
+            animate="visible"
+            variants={fadeInAnimation}
+          />
         </div>
         <div className="w-[60%] mt-[8%]">
           <Title
@@ -158,17 +201,19 @@ function ScienceHeader() {
           >
             INDUSTRIAL SORBENTS = INDUSTRIAL WASTE
           </Title>
-          <Title
-            marginTop="mt-6"
-            fontSize="4xl"
-            letterSpace="wider"
-            weight="semibold"
-            height="10"
-            className="w-[50%]"
-          >
-            The other guys are trying to solve one problem just to create
-            another.
-          </Title>
+          <motion.div initial={{ x: -200, opacity: 0 }} animate={controls}>
+            <Title
+              marginTop="mt-6"
+              fontSize="4xl"
+              letterSpace="wider"
+              weight="semibold"
+              height="10"
+              className="w-[50%]"
+            >
+              The other guys are trying to solve one problem just to create
+              another.
+            </Title>
+          </motion.div>
           <Title
             height="6"
             marginTop="mt-[20%]"
