@@ -1,5 +1,5 @@
-// export const BASE_URL = 'https://jbp2e2pm2s.us-east-2.awsapprunner.com/api/v1';
-export const BASE_URL = "http://localhost:4500/api/v1";
+export const BASE_URL = "https://jbp2e2pm2s.us-east-2.awsapprunner.com/api/v1";
+// export const BASE_URL = "http://localhost:4500/api/v1";
 
 export default {
   // -----AUTH------//
