@@ -49,6 +49,19 @@ const AnimatedText = ({ text }) => {
   );
 };
 
+const slideInAnimation = {
+  hidden: { opacity: 0, x: 100 }, // Start off to the right with low opacity
+  visible: {
+    opacity: 1,
+    x: 0, // Move to its original position
+    transition: {
+      type: "spring",
+      stiffness: 50,
+      duration: 1.5,
+    },
+  },
+};
+
 function ScienceHeader() {
   const cloudAnimation = {
     hidden: { opacity: 0, x: 100 },
@@ -214,19 +227,26 @@ function ScienceHeader() {
               another.
             </Title>
           </motion.div>
-          <Title
-            height="6"
-            marginTop="mt-[20%]"
-            weight="light"
-            className="w-[66%]"
+          <motion.div
+            ref={ref} // Attach the ref to the motion div
+            initial="hidden"
+            animate={inView ? "visible" : "hidden"} // Animate when in view
+            variants={slideInAnimation}
           >
-            The oil spill cleanup industry has been cleaning up its spills
-            simply by moving the incident from one location to another. Other
-            sorbent brand products on the market are non-biodegradable
-            polypropylene-based — single use plastic which is made using
-            traditional manufacturing processes that cause land and water
-            pollution.
-          </Title>
+            <Title
+              height="6"
+              weight="light"
+              className="w-[66%]"
+              marginTop="mt-16"
+            >
+              The oil spill cleanup industry has been cleaning up its spills
+              simply by moving the incident from one location to another. Other
+              sorbent brand products on the market are non-biodegradable
+              polypropylene-based — single-use plastic which is made using
+              traditional manufacturing processes that cause land and water
+              pollution.
+            </Title>
+          </motion.div>
         </div>
       </div>
       <div className="mt-40 ml-[640px] flex flex-row">
