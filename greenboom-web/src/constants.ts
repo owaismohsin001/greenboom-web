@@ -20,41 +20,50 @@ export const PRODUCTS_DATA = [
     id: 1,
     name: "Oil Only Absorbent Booms",
     img: product1,
+    usage: "For Water Surface",
   },
   {
     id: 2,
     name: "Oil Only Absorbent Pillows",
     img: product2,
+    usage: "For Land & Water",
   },
   {
     id: 3,
     name: "Oil Only Absorbent Socks",
+
     img: product3,
+    usage: "For Land Use",
   },
   {
     id: 4,
     name: "Oil Only Absorbent Pads",
     img: product4,
+    usage: "For Land & Water",
   },
   {
     id: 5,
     name: "Oil Only Loose Absorbent",
     img: product5,
+    usage: "For Land Use",
   },
   {
     id: 6,
     name: "Oil Only Loose Sorbent Sheen",
     img: product5,
+    usage: "For Water Surface",
   },
   {
     id: 7,
     name: "Oil-Only Spill Kits",
     img: product6,
+    usage: "For Land Use",
   },
   {
     id: 8,
-    name: "Oily",
+    name: "Oily™",
     img: product7,
+    usage: "Zero Waste Solution",
   },
 ];
 
