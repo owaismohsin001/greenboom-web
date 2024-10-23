@@ -103,11 +103,9 @@ function Uniqueness() {
             Green Boom has the only EPA, USDA, BioPreferred and TÜV certified
             oil absorbents in the world!
           </Title>
-          {/* <div className="pt-6"> */}
           <img src={certi1} width={100} className="ml-48 -mt-0" alt="" />
           <img src={certi2} className="ml-72 -mt-10  " alt="" />
           <img src={certi3} className="ml-80 -mt-36 " width={120} alt="" />
-          {/* </div> */}
         </div>
       </div>
     </div>
