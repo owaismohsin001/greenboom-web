@@ -86,7 +86,7 @@ function EnvironmentFriendly() {
       <div className="flex flex-row ml-44 mr-44">
         <div className="pt-32 w-[50%]">
           <img src={hero} alt="" />
-          <img src={cloud} width={120} className="ml-[560px] -mt-20" alt="" />
+          <img src={cloud} width={120} className="ml-[480px] -mt-20" alt="" />
         </div>
         <div className="w-[50%]">
           <Title fontSize="5xl" className="pt-64 pl-28" weight="medium">
