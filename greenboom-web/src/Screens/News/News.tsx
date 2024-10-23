@@ -7,8 +7,8 @@ function News() {
     <div>
       <DefaultLayout>
         <Title
-          className="text-primaryA text-center pt-20 pb-12"
           fontSize="4xl"
+          className="text-primaryA text-center pt-20 pb-12"
           weight="medium"
         >
           Newsletters & Press Releases
