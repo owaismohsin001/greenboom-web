@@ -48,6 +48,7 @@ import Uniqueness from "../../Components/Home/Uniqueness";
 import oily2 from "../../assets/Home/oily2.png";
 import textArea from "../../assets/Home/textArea.svg";
 import Title from "../../Components/Title/Title";
+import EnvironmentFriendly from "../../Components/Home/EnvironmentFriendly";
 
 function Home() {
   return (
@@ -57,7 +58,6 @@ function Home() {
         <Uniqueness />
         <div className="ml-72 mr-60 pt-10 pb-20">
           <img src={oily2} className="mt-72" alt="" />
-          {/* Parent div with relative positioning */}
           <div className="relative -mt-[430px]  ml-40">
             <img src={textArea} width={450} height={300} alt="" />
 
@@ -91,6 +91,7 @@ function Home() {
             </div>
           </div>
         </div>
+        <EnvironmentFriendly />
       </div>
     </DefaultLayout>
   );
