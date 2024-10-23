@@ -17,6 +17,7 @@ import Teams from "./Screens/Teams/Teams";
 import Science from "./Screens/Science/Science";
 import Contact from "./Screens/Contact/Contact";
 import Home from "./Screens/Home/Home";
+import News from "./Screens/News/News";
 function App() {
   return (
     <LoadingProvider>
@@ -41,6 +42,7 @@ function App() {
           <Route path="/science" element={<Science />} />
           <Route path="/contact" element={<Contact />} />
           <Route path="/home" element={<Home />} />
+          <Route path="/news" element={<News />} />
         </Routes>
       </BrowserRouter>
     </LoadingProvider>
