@@ -76,7 +76,7 @@ function Recomendations() {
           }
           .usage {
             position: absolute;
-            top: 10px;
+            top: 6px;
             left: 10px;
             background-color: rgba(
               255,

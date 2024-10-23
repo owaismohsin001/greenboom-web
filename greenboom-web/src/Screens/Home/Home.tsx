@@ -9,6 +9,7 @@ import EnvironmentFriendly from "../../Components/Home/EnvironmentFriendly";
 import Testimonials from "../../Components/Testimonials/Testimonials";
 import Performance from "../../Components/Home/Performance";
 import Recomendations from "../../Components/Home/Recomendations";
+import Partners from "../../Components/Home/Partners";
 
 function Home() {
   return (
@@ -86,6 +87,7 @@ function Home() {
         </div>
         <Testimonials />
         <Recomendations />
+        <Partners />
       </div>
     </DefaultLayout>
   );
