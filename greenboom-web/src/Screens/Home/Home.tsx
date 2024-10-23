@@ -49,6 +49,7 @@ import oily2 from "../../assets/Home/oily2.png";
 import textArea from "../../assets/Home/textArea.svg";
 import Title from "../../Components/Title/Title";
 import EnvironmentFriendly from "../../Components/Home/EnvironmentFriendly";
+import Performance from "../../Components/Home/Performance";
 
 function Home() {
   return (
@@ -92,6 +93,7 @@ function Home() {
           </div>
         </div>
         <EnvironmentFriendly />
+        <Performance />
       </div>
     </DefaultLayout>
   );
