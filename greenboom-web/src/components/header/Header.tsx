@@ -1,16 +1,25 @@
 import React, { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import GreenboomLogo from "../../assets/Greenboom.png";
 
 const Header = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [isAboutDropdownOpen, setIsAboutDropdownOpen] = useState(false); // State for mobile dropdown
+  const navigate = useNavigate();
 
+  const handleLogo = () => {
+    navigate("/home");
+  };
   return (
     <header className="bg-gray-100 text-black sticky top-0 z-40 shadow-md">
       <div className="container mx-auto flex justify-between items-center p-4 md:p-8">
         <div className="flex items-center mr-10">
-          <img src={GreenboomLogo} alt="App Logo" className="h-10 w-auto" />
+          <img
+            onClick={handleLogo}
+            src={GreenboomLogo}
+            alt="App Logo"
+            className="h-10 w-auto cursor-pointer"
+          />
         </div>
         <nav className="hidden md:flex space-x-6">
           <Link to="/science" className="hover:text-primaryA">

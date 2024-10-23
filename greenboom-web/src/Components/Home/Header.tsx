@@ -33,9 +33,9 @@ function Header() {
           </Title>
         </div>
       </div>
-      {/* Revolutionizing  */}
-      <div className="flex flex-row ml-52 mr-20 mt-36">
-        <div className="w-[40%] ">
+      {/* Revolutionizing Section */}
+      <div className="flex flex-row justify-between items-center ml-52 mr-20 mt-36">
+        <div className="w-[45%]">
           <Title weight="medium" fontSize="5xl">
             Revolutionizing the way oil clean-ups are managed.
           </Title>
@@ -43,14 +43,26 @@ function Header() {
             Green Boom offers a holistic Oil to Soil solution that no other
             company can! Our patented Sorbents, combined with an Oil-Eating
             Microbe, and Composting process not only solve oil clean-ups but
-            actively contribute to our planet's health.{" "}
+            actively contribute to our planet's health.
           </Title>
-          <div className="flex flex-row">
-            <Title className="text-primaryA" weight="medium" marginTop="mt-24">
+          <div className="flex flex-row items-center mt-10">
+            <Title className="text-primaryA" weight="medium">
               We know that’s a mouth-full - check out the video.
             </Title>
-            <img src={arrow} alt="" width={100} className="mt-10 pl-6" />
+            <img src={arrow} alt="" width={100} className="ml-2 mb-7" />
           </div>
+        </div>
+        <div className="w-[50%] -mt-20 ">
+          <iframe
+            width="90%"
+            height="270"
+            src="https://www.youtube.com/embed/IncVIEyB28g?si=LFhLfrXF5U6tDEuc"
+            title="YouTube video player"
+            frameborder="0"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+            referrerpolicy="strict-origin-when-cross-origin"
+            allowfullscreen
+          ></iframe>
         </div>
       </div>
     </>
