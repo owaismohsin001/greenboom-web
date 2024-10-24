@@ -18,6 +18,7 @@ import Science from "./Screens/Science/Science";
 import Contact from "./Screens/Contact/Contact";
 import Home from "./Screens/Home/Home";
 import News from "./Screens/News/News";
+import ProductPage from "./Screens/ProductPage/ProductPage";
 function App() {
   return (
     <LoadingProvider>
@@ -43,6 +44,7 @@ function App() {
           <Route path="/contact" element={<Contact />} />
           <Route path="/home" element={<Home />} />
           <Route path="/news" element={<News />} />
+          <Route path="/product-page" element={<ProductPage />} />
         </Routes>
       </BrowserRouter>
     </LoadingProvider>
