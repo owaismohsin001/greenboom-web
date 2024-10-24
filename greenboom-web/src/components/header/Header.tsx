@@ -10,10 +10,11 @@ const Header = () => {
   const handleLogo = () => {
     navigate("/home");
   };
+
   return (
-    <header className="bg-gray-100 text-black sticky top-0 z-40 shadow-md">
-      <div className="container mx-auto flex justify-between items-center p-4 md:p-8">
-        <div className="flex items-center mr-10">
+    <header className="bg-secondary text-black sticky top-0 z-40 shadow-sm">
+      <div className="container mx-auto flex  justify-between items-center p-4 md:p-8">
+        <div className="flex  items-center mr-10">
           <img
             onClick={handleLogo}
             src={GreenboomLogo}
@@ -21,7 +22,7 @@ const Header = () => {
             className="h-10 w-auto cursor-pointer"
           />
         </div>
-        <nav className="hidden md:flex space-x-6">
+        <nav className="hidden md:flex md:gap-20 space-x-6">
           <Link to="/science" className="hover:text-primaryA">
             SCIENCE
           </Link>
@@ -67,6 +68,7 @@ const Header = () => {
           <Link to="/contact" className="hover:text-primaryA">
             CONTACT
           </Link>
+
           <Link to="/login" className="hover:text-gray-400 text-primaryA">
             LOGIN
           </Link>
